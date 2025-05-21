@@ -42,7 +42,7 @@ export default function Router() {
       />
 
       <Route
-        path="/businessdetail"
+        path="/businessdetail/:id"
         element={
           <MainLayout>
             <BusinessDetails />
