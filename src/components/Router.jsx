@@ -15,7 +15,7 @@ export default function Router() {
     <Routes>
       <Route path="/403" element={<Error403 />} />
       <Route
-        path="/"
+        path="/:token"
         element={
           <MainLayout>
             <Dashboard />
