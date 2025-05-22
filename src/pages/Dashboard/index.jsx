@@ -3,21 +3,19 @@ import React, { useState, useEffect } from "react";
 import Case from "../../components/Case";
 import { ExclamationCircleOutlined } from "@ant-design/icons";
 import "./spinner.css"; // Custom CSS file
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useParams,useLocation } from "react-router-dom";
 
 export default function AuthFailed() {
-  const navigate = useNavigate();
-
+    const navigate = useNavigate();
+    const { token } = useParams()
+    
   useEffect(() => {
+    console.log(token);
     document.title = "eBPLS";
 
     // Simulated fetch to check authentication
-
-
-
      const getSSOData = async () => {
     try {
-      
         const userdata = {
           firstname: "EDBERT",
           lastname: "GARCIA",
@@ -59,11 +57,49 @@ export default function AuthFailed() {
     const checkAuth = async () => {
     try {
       
-        const userdata = {
+        let userdata = {
           firstname: "EDBERT",
           lastname: "GARCIA",
           middlename: "na",
         };
+
+        const formData = new FormData();
+        formData.append('partner_code', 'BACOLOD_CITY_SSO');
+        formData.append('partner_secret', '458f1eed529d4828963519d25f54f423')
+        formData.append('scope', 'SSO_AUTHENTICATION');
+        formData.append('exchange_code', token);
+
+        const getAccessToken = await fetch('https://oauth.e.gov.ph/api/token',{
+          method : 'POST',
+          body: formData
+        })  .then(response => response.json())
+        .then(data => data.access_token)
+        .catch(error => {
+          console.error('Error:', error);
+        });
+
+        const accessToken = await getAccessToken
+
+        const authSso = await fetch("https://oauth.e.gov.ph/api/partner/sso_authentication", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+            "Authorization": `Bearer ${accessToken}`,
+            "Cookie" : 'cross-site-cookie=bar'
+          },
+        }).then(response => response.json());
+
+        userdata.firstname = authSso.data.first_name
+        userdata.lastname = authSso.data.last_name
+        userdata.middlename = authSso.data.middle_name
+
+        if(!authSso.ok){
+          console.log(authSso.message); // Will return unauthorized
+          navigate("/authfailed", { replace: true });
+        }
+
+        localStorage.setItem('egovUserData',JSON.stringify(authSso.data))
+
         const response = await fetch("http://localhost:5000/api/sso/login", {
           method: "POST",
           headers: {
@@ -98,7 +134,7 @@ export default function AuthFailed() {
         };
 
     checkAuth();
-  }, [0]);
+  }, []);
 
   return (
     <Case>
