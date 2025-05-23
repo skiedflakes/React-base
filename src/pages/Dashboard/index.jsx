@@ -10,7 +10,6 @@ export default function AuthFailed() {
     const { token } = useParams()
     
   useEffect(() => {
-    console.log(token);
     document.title = "eBPLS";
 
     // Simulated fetch to check authentication
@@ -76,6 +75,7 @@ export default function AuthFailed() {
         .then(data => data.access_token)
         .catch(error => {
           console.error('Error:', error);
+          navigate("/authfailed", { replace: true });
         });
 
         const accessToken = await getAccessToken
@@ -94,11 +94,12 @@ export default function AuthFailed() {
         userdata.middlename = authSso.data.middle_name
 
         if(!authSso.ok){
-          console.log(authSso.message); // Will return unauthorized
           navigate("/authfailed", { replace: true });
         }
 
         localStorage.setItem('egovUserData',JSON.stringify(authSso.data))
+
+        console.log(JSON.parse(localStorage.getItem('egovUserData')))
 
         const response = await fetch("http://localhost:5000/api/sso/login", {
           method: "POST",

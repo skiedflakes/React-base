@@ -18,7 +18,7 @@ export default function BusinessDetails() {
 
   useEffect(() => {
     document.title = "eBPLS";
- 
+    console.log(storedUser.token);
     // Simulated fetch to check authentication
     const getBusinessdetail = async () => {
     try {
@@ -29,16 +29,16 @@ export default function BusinessDetails() {
           headers: {
             "Content-Type": "application/json",
             "Authorization": `Bearer ${storedUser.token}`,
-        
           },
                body: JSON.stringify(businessid),
         });
 
         if (response.ok) {
               const data = await response.json();
-        
               if (data.success) {
-                setBusinessDetailData(data.data)
+                console.log(data.data.business);
+                console.log(data.data.history);
+                setBusinessDetailData(await data.data)
               } else {
                 navigate("/authfailed", { replace: true });
               }
@@ -51,7 +51,7 @@ export default function BusinessDetails() {
         };
 
     getBusinessdetail();
-  }, [0]);
+  }, []);
 
 
   return (
