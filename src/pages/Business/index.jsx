@@ -30,9 +30,8 @@ const [businessData, setBussinessData] = useState([]);
 
         if (response.ok) {
               const data = await response.json();
-            
+
               if (data.success) {
-          
                  setBussinessData(data.data)
               } else {
                  navigate("/authfailed", { replace: true });
