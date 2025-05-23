@@ -57,9 +57,9 @@ export default function AuthFailed() {
     try {
       
         let userdata = {
-          firstname: "EDBERT",
-          lastname: "GARCIA",
-          middlename: "na",
+          firstname: "MARIE ANN",
+          lastname: "BIASCA",
+          middlename: "DE VILLA",
         };
 
         const formData = new FormData();
@@ -89,17 +89,15 @@ export default function AuthFailed() {
           },
         }).then(response => response.json());
 
-        userdata.firstname = authSso.data.first_name
-        userdata.lastname = authSso.data.last_name
-        userdata.middlename = authSso.data.middle_name
+       // userdata.firstname = authSso.data.first_name
+       // userdata.lastname = authSso.data.last_name
+       // userdata.middlename = authSso.data.middle_name
 
         if(!authSso.ok){
           navigate("/authfailed", { replace: true });
         }
 
         localStorage.setItem('egovUserData',JSON.stringify(authSso.data))
-
-        console.log(JSON.parse(localStorage.getItem('egovUserData')))
 
         const response = await fetch("http://localhost:5000/api/sso/login", {
           method: "POST",
