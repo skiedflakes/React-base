@@ -18,7 +18,6 @@ export default function BusinessDetails() {
 
   useEffect(() => {
     document.title = "eBPLS";
-    console.log(storedUser.token);
     // Simulated fetch to check authentication
     const getBusinessdetail = async () => {
     try {
