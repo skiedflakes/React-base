@@ -56,10 +56,10 @@ export default function AuthFailed() {
     const checkAuth = async () => {
     try {
       
-        let userdata = {
-          firstname: "MARIE ANN",
-          lastname: "BIASCA",
-          middlename: "DE VILLA",
+        const userdata = {
+          firstname: "EDBERT",
+          lastname: "GARCIA",
+          middlename: "na",
         };
 
         const formData = new FormData();
