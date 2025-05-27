@@ -89,9 +89,9 @@ export default function AuthFailed() {
           },
         }).then(response => response.json());
 
-       // userdata.firstname = authSso.data.first_name
-       // userdata.lastname = authSso.data.last_name
-       // userdata.middlename = authSso.data.middle_name
+        //userdata.firstname = authSso.data.first_name
+        //userdata.lastname = authSso.data.last_name
+        //userdata.middlename = authSso.data.middle_name
 
         if(!authSso.ok){
           navigate("/authfailed", { replace: true });
@@ -111,7 +111,7 @@ export default function AuthFailed() {
               const data = await response.json();
               if (data.success) {
                  const middleInitial = userdata.middlename ? userdata.middlename.trim().charAt(0) : "";
-                const fullName = `${userdata.firstname} ${middleInitial ? middleInitial + "." : ""} ${userdata.lastname}`;
+                const fullName = `${userdata.firstname} ${middleInitial ? middleInitial.toUpperCase() + "." : ""} ${userdata.lastname}`;
 
                   const userWithToken = { ...userdata, token: data.token, fullName:fullName };
 
