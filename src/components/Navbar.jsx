@@ -27,7 +27,6 @@ export default function Navbar() {
       <div className="flex items-center justify-between bg-gray-800 p-4" style={{ width: "100%" }}>
         <div className="flex items-center gap-2">
           <img src={Logo} alt="Bcdts Logo" width="50" height="50" />
-      
         </div>
           {!isBusinessRoute && (
           <ArrowLeftOutlined
