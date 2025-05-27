@@ -57,10 +57,8 @@ const [businessData, setBussinessData] = useState([]);
                 className="flex items-center justify-between pl-4 pr-4 mb-4 rounded-lg"
                 style={{ height: "50px", border: "2px solid #505FA4" }}>
                 <div className="flex items-center gap-2">
-                  <div className="bg-blue-500 text-white w-8 h-8 rounded-full flex items-center justify-center">A</div>
                   <span style={{fontSize:18, color:"#505FA4" }}>{storedUser.fullName}</span>
                 </div>
-                <DownOutlined className="text-gray-500" />
               </div>
 
                 <h1 style={{color:"black",fontSize:16, }}>Business Available</h1>
@@ -80,7 +78,7 @@ const [businessData, setBussinessData] = useState([]);
                           {business.TRADENAME}
                         </h2>
                         <p style={{ color: "black", fontSize: 14 }}>
-                          {business.BUSINESSID} | BRGY. {business.BRGYNAME}
+                          { business.BUSINESSID} | BRGY. {business.BRGYNAME}
                         </p>
                       </div>
                         <ArrowRightOutlined style={{ color: "black", fontSize: 16 }} />
