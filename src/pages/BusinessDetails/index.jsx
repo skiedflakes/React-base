@@ -35,8 +35,6 @@ export default function BusinessDetails() {
         if (response.ok) {
               const data = await response.json();
               if (data.success) {
-                console.log(data.data.business);
-                console.log(data.data.history);
                 setBusinessDetailData(await data.data)
               } else {
                 navigate("/authfailed", { replace: true });
@@ -61,10 +59,9 @@ export default function BusinessDetails() {
               <span style={{fontSize:18, color:"black",}}>  {businessDetailData?.business?.TRADENAME}</span>
               <div className="row justify-center pt-2">
                  <img src={Media} alt="Bcdts Logo" width="100%" height="200" />
-                 
               </div>
                 <p style={{paddingBottom:15,paddingTop:5,color:"black",}}>
-                  {businessDetailData?.business?.BUSINESSID} | Brgy {businessDetailData?.business?.BRGYNAME}
+                  { "Business ID: " + businessDetailData?.business?.BUSINESSID} | Brgy {businessDetailData?.business?.BRGYNAME}
                 </p>
                  <p> {businessDetailData?.business?.BUSINESSADDRESS}
                   
@@ -83,7 +80,6 @@ export default function BusinessDetails() {
                                 padding: "12px 16px",
                                 gap: "16px"
                               }}
-                              onClick={() => console.log(`Clicked on ${business?.name}`)}
                             >
                               <div className="flex items-center justify-center bg-blue-100 rounded-full" 
                                   style={{ width: "36px", height: "36px" }}>
@@ -97,8 +93,8 @@ export default function BusinessDetails() {
                                 <p style={{ color: "black", fontSize: 12, marginBottom: "2px" }}>
                                   Permit No: {business?.PERMITNO?business?.PERMITNO:'N/A'}
                                 </p>
-                                <p style={{ color: "black", fontSize: 12 }}>
-                                  Status: {business?.PERMITNO!=''?'Completed':'Pending'}
+                                <p style={{ color: "black", fontSize: 12 }} >
+                                  Status: { business.PERMITNO ? 'Completed' : 'Pending'}
                                 </p>
                               </div>
                             </div>
