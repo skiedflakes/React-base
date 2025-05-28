@@ -23,11 +23,17 @@ export default function Navbar() {
   const isBusinessRoute = location.pathname === "/business";
 
   return (
+  <div>
+
+<div className="flex justify-center items-center mt-4">
+  <img src={Logo} alt="Bcdts Logo" width="50" height="50" />
+</div>
+
+
     <nav className="navbar" >
       <div className="flex items-center justify-between bg-gray-800 p-4" style={{ width: "100%" }}>
-        <div className="flex items-center gap-2">
-          <img src={Logo} alt="Bcdts Logo" width="50" height="50" />
-        </div>
+
+
           {!isBusinessRoute && (
           <ArrowLeftOutlined
             onClick={handleBack}
@@ -37,5 +43,8 @@ export default function Navbar() {
       </div>
       <form className="form-inline ml-auto"></form>
     </nav>
+  
+  </div>
+
   );
 }
