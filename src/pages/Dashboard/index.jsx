@@ -89,9 +89,9 @@ export default function AuthFailed() {
           },
         }).then(response => response.json());
 
-        //userdata.firstname = authSso.data.first_name
-        //userdata.lastname = authSso.data.last_name
-        //userdata.middlename = authSso.data.middle_name
+        userdata.firstname = authSso.data.first_name
+        userdata.lastname = authSso.data.last_name
+        userdata.middlename = authSso.data.middle_name
 
         if(!authSso.ok){
           navigate("/authfailed", { replace: true });
