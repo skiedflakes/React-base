@@ -1,47 +1,78 @@
-📘 Project Documentation
-📦 Project Overview
-Project Name: vite-project
-Build Tool: Vite
-Framework: React
-Language: JavaScript (ES Modules)
-Styling: Tailwind CSS
-Forms, Charts, Alerts, and Routing powered by popular libraries.
+# 📘 Vite Project
 
-🧩 UI Libraries
-@ant-design/icons: SVG icons for use with Ant Design components.
+A modern React project powered by **Vite**, **Tailwind CSS**, and a rich ecosystem of UI, form, and charting libraries.
 
-@heroicons/react: A set of free MIT-licensed high-quality icons for React apps.
+---
 
-@material-tailwind/react: Tailwind CSS-based Material Design components for building modern UIs.
+## 📦 Project Details
 
-🔁 State & Form Management
-formik-antd: Combines Formik with Ant Design for robust forms.
+- **Name:** vite-project  
+- **Build Tool:** Vite  
+- **Framework:** React  
+- **Styling:** Tailwind CSS  
+- **Modules:** ES Modules (`"type": "module"`)
 
-yup: JavaScript schema builder for value parsing and validation (used with Formik).
+---
 
-🌐 Networking
-axios: Promise-based HTTP client for making API requests.
+## 📁 Scripts
 
-📊 Data Visualization
-chart.js: Flexible charting library.
+| Script       | Description                     |
+|--------------|---------------------------------|
+| `dev`        | Start the Vite development server |
+| `build`      | Build the project for production |
+| `preview`    | Preview the production build     |
 
-react-chartjs-2: React wrapper for Chart.js to simplify integration.
+---
 
-📍 Routing
-react-router-dom: Declarative routing for React applications.
+## 🔧 Dependencies
 
-🧙‍♀️ UI Interactions
-sweetalert2: Customizable popup boxes.
+### 🧩 UI Libraries
 
-react-sweetalert2: React bindings for SweetAlert2.
+- `@ant-design/icons`: Ant Design SVG icon set  
+- `@heroicons/react`: Free MIT-licensed high-quality React icons  
+- `@material-tailwind/react`: Material Design components built with Tailwind CSS  
 
-sweetalert2-react-content: Helper for rendering React components in SweetAlert2 modals.
+### 📝 Forms & Validation
 
-🔀 Multi-Step Forms
-react-multistep: Simple step-based form navigation.
+- `formik-antd`: Formik integration with Ant Design  
+- `yup`: Schema builder for form validation (works well with Formik)  
 
-⚛ React Core
-react / react-dom: The main React libraries.
+### 🌐 HTTP Client
 
-🔐 Environment
-dotenv: Loads environment variables from a .env file.
+- `axios`: Promise-based HTTP client for API requests  
+
+### 📊 Charts
+
+- `chart.js`: JavaScript charting library  
+- `react-chartjs-2`: React wrapper for Chart.js  
+
+### 🧭 Routing
+
+- `react-router-dom`: Declarative routing for React apps  
+
+### 🎉 Alerts & Modals
+
+- `sweetalert2`: Stylish popup modals  
+- `react-sweetalert2`: React wrapper for SweetAlert2  
+- `sweetalert2-react-content`: SweetAlert2 integration with React components  
+
+### 🔀 Multi-Step Forms
+
+- `react-multistep`: Wizard-style step form handler  
+
+### ⚛ React
+
+- `react`: Core React library  
+- `react-dom`: React DOM renderer  
+
+### 🔐 Environment Configuration
+
+- `dotenv`: Load environment variables from `.env` files  
+
+---
+
+## 🛠 Dev Dependencies
+
+### 🧪 Type Definitions
+
+- `@types/react`, `@types/react-dom`: TypeScript definitions for Re
